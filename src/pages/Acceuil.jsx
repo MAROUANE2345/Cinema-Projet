@@ -27,7 +27,7 @@ const Acceuil = () => {
 
     
         setTimeout(() => {
-            if(!fin){
+            if(fin == false){
                 setPopup(true)
             }
 

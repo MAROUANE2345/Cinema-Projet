@@ -1,50 +1,78 @@
 import { useState } from "react";
-
+import './contact.css'
 export default function Contact() {
 
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+   const [nom,setNom] = useState("")
+   const [email,setEmail] = useState("")
+   const [message,setMessage] = useState("")
 
-  function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
+   const [success,setSuccess] = useState("")
+   const [nomErreur,setNomErreur] = useState('')
+   const [emailErreur,setEmailErreur] = useState('')
+   const [messageErreur,setMessageErreur] = useState('')
+   const getName = (event) => {
+    setNom(event.target.value)
+   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    alert(`Merci ${form.name}, message envoyé !`);
-    setForm({ name: "", email: "", message: "" });
-  }
+   const getEmail = (event) => {
+    setEmail(event.target.value)
+   }
 
+   const getMessage = (event) => {
+    setMessage(event.target.value)
+   }
+   const sendMessage = () => {
+     let youCanSend = true
+      if(!nom.trim()){
+        setNomErreur("you have to enter the name")
+        youCanSend = false
+      }else{
+        setNomErreur("")
+      }
+      if(!email.includes("@")){
+        setEmailErreur("the email must be valid")
+        youCanSend = false
+      }else{
+        setEmailErreur("")
+      }
+      if(!message.trim()){
+        setMessageErreur('you have to enter the message')
+        youCanSend = false
+      }else{
+        setMessageErreur("")
+      }
+      if(youCanSend){
+        setSuccess("Message sent successfully!")
+        setNom("")
+        setEmail("")
+        setMessage("")
+      }
+   }
   return (
-    <form onSubmit={handleSubmit} style={{ width: "300px", margin: "40px auto" }}>
-      
-      <h2>Contact</h2>
+<div className="contact">
+  
+ <div className="contact-container">
+    <label>Nom: </label>
+    <input type="text" onChange={(event) => getName(event)}  />
 
-      <input 
-        name="name"
-        placeholder="Nom"
-        value={form.name}
-        onChange={handleChange}
-        required
-      /><br/>
+    <p>{nomErreur}</p>
 
-      <input 
-        name="email"
-        type="email"
-        placeholder="Email"
-        value={form.email}
-        onChange={handleChange}
-        required
-      /><br/>
+    <label htmlFor="">Email</label>
+    <input type="email" onChange={(event) => getEmail(event)}  />
 
-      <textarea
-        name="message"
-        placeholder="Message"
-        value={form.message}
-        onChange={handleChange}
-        required
-      ></textarea><br/>
+    <p>{emailErreur}</p>
 
-      <button type="submit">Envoyer</button>
-    </form>
+    <label htmlFor="" >Message</label>
+    <textarea onChange={(event) => getMessage(event)}></textarea>
+
+    <p>{messageErreur}</p>
+
+  </div>
+<div className="msg-btn-div">
+   <button onClick={() => sendMessage()} className="msg-btn">Send Message</button>
+  <p>{success}</p>
+</div>
+  
+</div>
   );
 }
