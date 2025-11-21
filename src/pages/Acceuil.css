@@ -1,0 +1,111 @@
+.acc{
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    text-align: center;
+}
+
+.acc h1{
+    color: #656C28;
+}
+
+.film-grid{
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 50px;
+    padding-left: 180px;
+    padding-right: 100px;
+}
+
+.film-col{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+
+
+.film-col img{
+    height: 250px;
+    width: 200px;
+    transition: 0.5s;
+}
+.film-col img:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.film-col h3{
+    margin-right: 95px;
+}
+
+
+.popup-div{
+     background: rgba(255, 255, 255, 0.4); /* semi-transparent */
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 0 80px rgb(101, 108, 40,0.8);
+    width: 30%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    backdrop-filter: blur(10px);
+
+    
+}
+
+.popup-div h4{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.popup-div button{
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(101, 108, 40);
+    color: white;
+    cursor:pointer;
+    transition: 0.3s;
+}
+
+.popup-div button:hover{
+    transform: scale(1.09);
+    transition: 0.3s;
+}
+
+.flex-btn{
+    display: flex;
+    gap: 5px;
+   
+
+}
+#second{
+    gap: 10px;
+}
+.popup-div label{
+    color: #000000;
+    font-weight: bold;
+    margin-right: 194px;
+
+}
+
+.popup-div input{
+    border: none;
+    padding: 5px;
+    width: 300px;
+    background-color: #656C28;
+    
+}
+
+#sub-btn{
+    margin-top: 20px;
+    height: 25px;
+}
+

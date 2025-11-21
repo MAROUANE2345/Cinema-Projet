@@ -1,0 +1,25 @@
+
+body{
+    padding: 0;
+    margin: 0;
+}
+.nav{
+    background-color: transparent;
+    display: flex;
+    gap: 100px;
+    justify-content: start;
+    padding-left: 20px;
+}
+
+.nav h1{
+    color: #656C28;
+}
+
+.nav div{
+    margin-top: 34px;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+}
